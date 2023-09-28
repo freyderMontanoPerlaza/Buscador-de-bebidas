@@ -7,6 +7,12 @@ const BebidasContext = createContext()
 const BebidasProvider = ({ children }) => {
 
 
+    //arreglo bacio
+    const [bebidas, setBebidas] = useState([]);
+
+
+
+
 
 
 
@@ -20,7 +26,7 @@ const BebidasProvider = ({ children }) => {
 
 
             const { data } = await axios(URL)
-            console.log(data)
+            setBebidas(data.drinks)
 
 
 
@@ -43,7 +49,8 @@ const BebidasProvider = ({ children }) => {
         //hacer disonoible mis bebidas
         <BebidasContext.Provider
             value={{
-                consultarBebida
+                consultarBebida,
+                bebidas
             }}>
 
             {children}
