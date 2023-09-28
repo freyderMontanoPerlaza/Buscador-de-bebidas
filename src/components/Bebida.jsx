@@ -1,6 +1,15 @@
 import { Card, Button, Col, CardImg, CardBody } from 'react-bootstrap'
+import useBebidas from '../hooks/useBebidas'
+
 
 const Bebida = ({ bebida }) => {
+
+    const { handleModalClick, handleBebidaidlClick } = useBebidas();
+
+
+
+
+
     return (
 
 
@@ -16,7 +25,16 @@ const Bebida = ({ bebida }) => {
                     <Card.Title>
                         {bebida.strDrink}
                     </Card.Title>
-                    <Button className='w-100 text-uppercase ' variant='warning'>
+                    <Button
+                        className='w-100 text-uppercase '
+                        variant={'warning'}
+                        onClick={() => {
+                            handleModalClick()
+                            handleBebidaidlClick(bebida.idDrink)
+                        }
+                        }
+
+                    >
                         Ver Recetas
                     </Button>
                 </CardBody>
